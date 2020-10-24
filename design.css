@@ -1,0 +1,25 @@
+#title {
+    background-color: rgb(130, 198, 238);
+    font-size: 35pt;
+}
+
+.sorten {
+    background-color: wheat;
+    font-size: 15pt;
+}
+
+body a {
+    color: tomato;
+}
+
+#köstlich {
+    font-size: 22pt;
+    }
+
+#email {
+    font-size: 15pt;
+}
+
+#kekssorten {
+    font-size: 30pt;
+}
