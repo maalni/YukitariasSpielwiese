@@ -4,6 +4,7 @@
     </head>
     <body>
         <div id="header">
+            <img id="logo" src="./pictures/logo.png">
             <h1>Keksmanufaktur Haller</h1>
             <div id="navbar">
                 <ul>
@@ -16,7 +17,14 @@
             </div>
         </div>
         <div id="content">
-            <img src="Keks.png"><br>
+            <div id="multimedia">
+                <button class="diabutton" onclick="changePicture(-1)"><</button>
+                <div id="diashow">
+                    <img id="1" class="diapart current" src="pictures/pexels-suzy-hazelwood-1196301.jpg">
+                    <img id="2" class="diapart" src="pictures/zimtsterne.jpg">
+                </div>
+                <button class="diabutton" onclick="changePicture(1)">></button>
+            </div>
             <div id="text">
                 <span>Wir bereiten die köstlichsten Kekse mit der besten Qualität Deutschlands zu</span><br>
                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ipsum modi consequuntur soluta ducimus porro nesciunt commodi molestiae, repellat enim officiis ipsa suscipit eveniet aliquam sit voluptate, iste perferendis cumque! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia perspiciatis rem nesciunt. Autem et consectetur incidunt sequi doloremque laboriosam modi sed totam facere earum? Debitis nesciunt totam fuga dolorum quam? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita aut provident nesciunt fugiat esse, molestias obcaecati perferendis doloremque maiores nulla maxime eligendi! Sed beatae odio iusto consequatur deleniti molestias quae. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis beatae culpa temporibus accusamus, nemo, maxime, nobis hic suscipit at omnis non eum molestias? Mollitia voluptatem labore, ullam recusandae repellat sint! Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem saepe illum aspernatur, cumque mollitia sed eveniet deserunt hic consectetur omnis excepturi suscipit assumenda quidem dicta magni perspiciatis deleniti voluptates dolore!</span>
@@ -39,7 +47,50 @@
             </div>
         </div>
         <div id="footer">
-            <span id="email">Email: <a href="mailto:kekse@haller.de">kekse@haller.de</a></span><br>
+            <div class="hälfte">
+                <li>Kontakt</li>
+                <li>Email: <a href="mailto:kekse@haller.de">kekse@haller.de</a></li>
+            </div>
+            <div class="hälfte">
+                <li>Impressum</li>
+                <li>Partner</li>
+            </div>
         </div>
     </body>
+    <script>
+        time = 0;
+        interval = 10;
+        picture = 0;
+        maxPictures = 2;
+        setInterval(
+            function(){
+                time++;
+                if(time >= interval){
+                    time = 0;
+                    changePicture(1);
+                }
+                console.log(time);
+            }
+        , 1000);
+
+        function changePicture(delta){
+            hidePicture();
+            picture = picture + delta;
+            if(picture >= maxPictures){
+                picture = 0;
+            }
+            if(picture < 0) {
+                picture = maxPictures - 1;
+            }
+            showPicture();
+        }
+
+        function hidePicture(){
+            document.getElementById(picture + 1).className = "diapart";
+        }
+
+        function showPicture(){
+            document.getElementById(picture + 1).className += " current";
+        }
+    </script>
 </html>
